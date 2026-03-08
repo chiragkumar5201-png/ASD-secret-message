@@ -1,0 +1,147 @@
+:root {
+  --primary: #00f2ff; /* Cyber Blue */
+  --accent: #7000ff;  /* Neon Purple */
+  --bg: #0a0a0c;      /* Deep Black */
+  --card-bg: rgba(255, 255, 255, 0.07);
+}
+
+body {
+  background-color: var(--bg);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* The Matrix-style Background Detail */
+.bg-dots {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* The Main Card */
+.vault-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+  transition: all 0.3s ease;
+}
+
+.icon { 
+  font-size: 3.5rem; 
+  margin-bottom: 10px; 
+  filter: drop-shadow(0 0 10px var(--primary));
+}
+
+h1 { 
+  font-size: 1.4rem; 
+  letter-spacing: 3px; 
+  text-transform: uppercase; 
+  margin-bottom: 25px; 
+  color: var(--primary);
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+/* Input Fields */
+textarea, input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.3);
+}
+
+/* Specifically for the Share Link field */
+#share-url {
+  background: rgba(0, 242, 255, 0.1);
+  color: var(--primary);
+  border: 1px dashed var(--primary);
+  font-family: monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(45deg, var(--accent), var(--primary));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:active { 
+  transform: scale(0.96); 
+}
+
+/* Note Display Area */
+#reveal-area {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+  text-align: left;
+  line-height: 1.6;
+  white-space: pre-wrap; /* Keeps line breaks from your textarea */
+}
+
+/* Animations */
+.fade-in { 
+  animation: fadeIn 0.6s ease-out; 
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; transform: translateY(20px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+.shake { 
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; 
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+p.status {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
